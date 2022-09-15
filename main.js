@@ -65,6 +65,7 @@ function playGame() {
       alert(result);
       updateScore(result);
       outputScore();
+      declareWinner();
 }
 
 // Output score to HTML body
@@ -72,4 +73,16 @@ function playGame() {
 function outputScore() {
     document.getElementById("playerScore").innerHTML = playerScore;
     document.getElementById("computerScore").innerHTML = computerScore;
+}
+
+// Announce a winner!
+
+function declareWinner() {
+    if (playerScore >= 3) {
+    alert('You beat me MOTHERFUCKER!')
+    } else if (computerScore >= 3) {
+        alert('HAHA FUCK YOU DUMB CUNT! I WIN')
+    } else {
+
+    }
 }

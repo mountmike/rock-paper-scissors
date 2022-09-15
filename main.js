@@ -1,22 +1,24 @@
-// Input choice of Rock, Paper or Scissors
-let playerSelection = prompt('Chose your weapon! Rock, Paper, or Scissors.');
+// Creating some key variables
+let playerSelection;
 let computerSelection;
-let result = '';
+let result;
 
-playerSelection;
-playerSelection = playerSelection.toLowerCase();
+// Get input choice of Rock, Paper or Scissors from player
+
+function getPlayerChoice() {
+    playerSelection = prompt('Chose your weapon! Rock, Paper, or Scissors.');
+    playerSelection = playerSelection.toLowerCase();
+}
 
 // Computer to generate choice of Rock, Paper or Scissors
 
 function getComputerChoice() {
     const choices = ['Rock', 'Paper', 'Scissors']
-    let randomNum = '';
-    randomNum = Math.floor(Math.random()*3);
+    let randomNum;
+    randomNum = Math.floor(Math.random() * 3);
     computerSelection = choices[randomNum];
     computerSelection = computerSelection.toLowerCase();
 }
-
-getComputerChoice();
 
 // Evaluate who's value is greater: user or computer using a conditional statement
 
@@ -40,6 +42,14 @@ function evaluate(a, b) {
     }
 };
 
-evaluate(playerSelection, computerSelection);
+// creating loop to enable 5 rounds of the game
 
-alert(result)
+function game() {
+    for (let i = 0; i < 5; i++) {
+      getPlayerChoice();
+      getComputerChoice();
+      evaluate(playerSelection, computerSelection);
+      alert(result);
+    }
+    
+}

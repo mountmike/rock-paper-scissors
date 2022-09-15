@@ -2,6 +2,8 @@
 let playerSelection;
 let computerSelection;
 let result;
+let playerScore = 0;
+let computerScore = 0;
 
 // Get input choice of Rock, Paper or Scissors from player
 
@@ -37,19 +39,37 @@ function evaluate(a, b) {
         result = ('You Lose! Scissors beats Paper');
     } else if (a === 'scissors' && b === 'rock') {
         result = ('You Lose! Rock beats Scissors');
-    } else {
+    } else if (a === b) {
         result = ("It's a draw! Play again?");
+    } else {
+        result = ("Learn to spell dIcKhEAd")
     }
 };
 
+// Keep track of scores
+
+function updateScore(result) {
+    if (result.includes('You Win')) {
+      playerScore++;
+    } else if (result.includes('You Lose')) {
+      computerScore++; 
+    } 
+}
+
 // creating loop to enable 5 rounds of the game
 
-function game() {
-    for (let i = 0; i < 5; i++) {
+function playGame() {
       getPlayerChoice();
       getComputerChoice();
       evaluate(playerSelection, computerSelection);
       alert(result);
-    }
-    
+      updateScore(result);
+      outputScore();
+}
+
+// Output score to HTML body
+
+function outputScore() {
+    document.getElementById("playerScore").innerHTML = playerScore;
+    document.getElementById("computerScore").innerHTML = computerScore;
 }

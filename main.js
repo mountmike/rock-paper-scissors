@@ -71,8 +71,8 @@ function playGame() {
 // Output score to HTML body
 
 function outputScore() {
-    document.getElementById("playerScore").innerHTML = 'Your Score: ' + playerScore;
-    document.getElementById("computerScore").innerHTML = 'My Score: ' + computerScore;
+    document.getElementById("playerScore").innerHTML = 'You: ' + playerScore;
+    document.getElementById("computerScore").innerHTML = 'Me: ' + computerScore;
 }
 
 // Announce a winner!

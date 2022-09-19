@@ -81,7 +81,7 @@ function declareWinner() {
     if (playerScore >= 3) {
     alert('You beat me MOTHERFUCKER!')
     } else if (computerScore >= 3) {
-        alert('HAHA FUCK YOU DUMB CUNT! I WIN')
+        alert('HAHA FUCK YOU DUMB CUNT! I WIN!')
     } else {
 
     }

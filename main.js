@@ -42,7 +42,7 @@ function evaluate(a, b) {
     } else if (a === b) {
         result = ("It's a draw! Play again?");
     } else {
-        result = ("Learn to spell dIcKhEAd")
+        result = ("Learn to spell dIcKhEAd!!!")
     }
 };
 

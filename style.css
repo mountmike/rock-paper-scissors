@@ -11,10 +11,15 @@ body {
     margin: 50px;
 }
 
+h1 {
+    transition-duration: 2s;
+}
 .container {
     display: flex;
-    justify-content:space-around;
+    justify-content:center;
     align-items: center;
+    gap: 50px;
+    margin-bottom: 200px;
 }
 
 .playgame {
@@ -30,6 +35,44 @@ body {
 
 img {
     max-width: 250px;
-    padding:20px 0px;
-
+    padding: 20px;
 }
+
+
+#rock:hover, #paper:hover, #scissors:hover {
+    transition: transform .2s;
+    transform: scale(1.2);
+}
+
+#playGame {
+    background-color: #F3AB83;
+    border: 10px solid #DB0030;
+    border-radius: 35px;
+    padding: 50px;
+    margin: 50px;
+    font-size: 60px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #DB0030;
+    font-weight:700;
+    transition-duration: 0.4s;
+}
+
+#playGame:hover {
+    transform: scale(1.2);
+
+  }
+
+  #playGame:active {
+    background-color: #DB0030;
+    border-color: #EC846C;
+    color: #EC846C;
+
+  }
+
+  #playerChoiceContainer {
+    margin-top: 600px;
+  }
+
+  #roundResult {
+    margin: 50px;
+  }

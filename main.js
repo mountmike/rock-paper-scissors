@@ -2,6 +2,7 @@
 const rockbtn = document.querySelector('#rock');
 const paperbtn = document.querySelector('#paper');
 const scissorsbtn = document.querySelector('#scissors');
+
 let playerSelection;
 let computerSelection;
 let result;
@@ -9,7 +10,17 @@ let playerScore = 0;
 let computerScore = 0;
 
 
-// // Get input choice of Rock, Paper or Scissors from player, trigger rest of game
+// start game - scroll to weapon choice.
+playGame.addEventListener('click', function() {
+    window.scrollBy({
+        top: 1000,
+        left: 0,
+        behavior : "smooth"
+    })
+});
+
+
+// Get input choice of Rock, Paper or Scissors from player, trigger rest of game
 rockbtn.addEventListener('click', function() {
     playerSelection = "rock", playRound();
   });
@@ -54,7 +65,13 @@ function evaluate(a, b) {
     }
 };
 
-// Keep track of scores
+// Function to output result of current round to DOM
+
+const outputResult = function() {
+    document.getElementById("roundResult").innerText = result;
+}
+
+// Function to keep count of scores
 
 function updateScore(result) {
     if (result.includes('You Win')) {
@@ -64,12 +81,12 @@ function updateScore(result) {
     } 
 }
 
-// creating function to play each round and first to 3 wins
+// function to play each round and first to 3 wins
 
 function playRound() {
       getComputerChoice();
       evaluate(playerSelection, computerSelection);
-      alert(result);
+      outputResult(result);
       updateScore(result);
       outputScore();
       declareWinner();

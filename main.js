@@ -1,16 +1,24 @@
 // Creating some key variables
+const rockbtn = document.querySelector('#rock');
+const paperbtn = document.querySelector('#paper');
+const scissorsbtn = document.querySelector('#scissors');
 let playerSelection;
 let computerSelection;
 let result;
 let playerScore = 0;
 let computerScore = 0;
 
-// Get input choice of Rock, Paper or Scissors from player
 
-function getPlayerChoice() {
-    playerSelection = prompt('Chose your weapon! Rock, Paper, or Scissors.');
-    playerSelection = playerSelection.toLowerCase();
-}
+// // Get input choice of Rock, Paper or Scissors from player, trigger rest of game
+rockbtn.addEventListener('click', function() {
+    playerSelection = "rock", playRound();
+  });
+paperbtn.addEventListener('click', function() {
+    playerSelection = "paper", playRound();
+  });
+scissorsbtn.addEventListener('click', function() {
+    playerSelection = "scissors", playRound();
+  });
 
 // Computer to generate choice of Rock, Paper or Scissors
 
@@ -56,10 +64,9 @@ function updateScore(result) {
     } 
 }
 
-// creating loop to enable 5 rounds of the game
+// creating function to play each round and first to 3 wins
 
-function playGame() {
-      getPlayerChoice();
+function playRound() {
       getComputerChoice();
       evaluate(playerSelection, computerSelection);
       alert(result);
@@ -71,8 +78,8 @@ function playGame() {
 // Output score to HTML body
 
 function outputScore() {
-    document.getElementById("playerScore").innerHTML = 'You: ' + playerScore;
-    document.getElementById("computerScore").innerHTML = 'Me: ' + computerScore;
+    document.getElementById("playerScore").innerText = 'You: ' + playerScore;
+    document.getElementById("computerScore").innerText = 'Me: ' + computerScore;
 }
 
 // Announce a winner!
@@ -86,3 +93,7 @@ function declareWinner() {
 
     }
 }
+
+
+
+

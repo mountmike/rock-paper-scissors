@@ -5,8 +5,8 @@ body {
     flex-direction: column;
     text-align: center;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background-color: black;
-    color: lightcoral;
+    background-color: white;
+    color: #DB0030;
     font-size: 2em;
     margin: 50px;
 }
@@ -25,4 +25,9 @@ body {
 
 #computerScore, #playerScore, h2 {
     font-size: 2em;
+}
+
+img {
+    max-width: 300px;
+
 }

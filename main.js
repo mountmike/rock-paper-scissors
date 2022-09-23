@@ -8,6 +8,9 @@ const scissorSound = new Audio("scissor.mp3");
 const winSound = new Audio("win.mp3");
 const loseSound = new Audio("lose.mp3");
 
+let modal = document.getElementById("myModal");
+let span = document.getElementsByClassName("close")[0];
+
 let playerSelection;
 let computerSelection;
 let result;
@@ -42,21 +45,19 @@ function evaluate(a, b) {
     playerSelection = a;
     computerSelection = b;
     if (a === 'rock' && b === 'scissors') {
-        result = 'You Win! Rock beats Scissors';
+        result = 'You Win! \nRock beats Scissors';
     } else if (a === 'scissors' && b === 'paper') {
-        result = ('You Win! Scissors beats Paper');
+        result = ('You Win! \nScissors beats Paper');
     } else if (a === 'paper' && b === 'rock') {
-        result = ('You Win! Paper beats Rock');
+        result = ('You Win! \nPaper beats Rock');
     } else if (a === 'rock' && b === 'paper') {
-        result = ('You Lose! Paper beats Rock');
+        result = ('You Lose! \nPaper beats Rock');
     } else if (a === 'paper' && b === 'scissors') {
-        result = ('You Lose! Scissors beats Paper');
+        result = ('You Lose! \nScissors beats Paper');
     } else if (a === 'scissors' && b === 'rock') {
-        result = ('You Lose! Rock beats Scissors');
+        result = ('You Lose! \nRock beats Scissors');
     } else if (a === b) {
-        result = ("It's a draw! Play again?");
-    } else {
-        result = ("Learn to spell dIcKhEAd!!!")
+        result = ("Looks like this round's a draw");
     }
 };
 
@@ -79,21 +80,39 @@ function updateScore(result) {
 // Output score to HTML body
 
 function outputScore() {
+    modal.style.display = "block";
     document.getElementById("playerScore").innerText = 'You: ' + playerScore;
     document.getElementById("computerScore").innerText = 'Me: ' + computerScore;
+    span.onclick = function() {
+        modal.style.display = "none";
+      }
 }
 
 // Announce a winner!
 
+
 function declareWinner() {
     if (playerScore >= 5) {
-        winSound.play(), alert('You beat me MOTHERFUCKER!')
+        document.getElementById("declareWinner").innerHTML = 'You beat me!';
+        winSound.play();
     } else if (computerScore >= 5) {
-        loseSound.play(), alert('HAHA FUCK YOU DUMB CUNT! I WIN!')
-    } else {
+        document.getElementById("declareWinner").innerHTML = 'HAHA I beat you!';
+        loseSound.play();
+    } 
 
-    }
 }
+// enables modal to be closed
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
 
 // function to play each round and first to 3 wins
 
@@ -104,8 +123,5 @@ function playRound() {
     updateScore(result);
     outputScore();
     declareWinner();
+    
 }
-
-
-
-

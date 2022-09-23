@@ -84,3 +84,9 @@ img {
   ul {
     list-style: none;
   }
+
+  #footer {
+    font-size: .5em;
+    font-weight: 200;
+    margin-bottom: -100px;
+  }

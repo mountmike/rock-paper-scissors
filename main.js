@@ -2,6 +2,11 @@
 const rockbtn = document.querySelector('#rock');
 const paperbtn = document.querySelector('#paper');
 const scissorsbtn = document.querySelector('#scissors');
+const rockSound = new Audio("rock.mp3");
+const paperSound = new Audio("paper.mp3");
+const scissorSound = new Audio("scissor.mp3");
+const winSound = new Audio("win.mp3");
+const loseSound = new Audio("lose.mp3");
 
 let playerSelection;
 let computerSelection;
@@ -12,13 +17,13 @@ let computerScore = 0;
 
 // Get input choice of Rock, Paper or Scissors from player, trigger rest of game
 rockbtn.addEventListener('click', function() {
-    playerSelection = "rock", playRound();
+    playerSelection = "rock", rockSound.play(), playRound();
   });
 paperbtn.addEventListener('click', function() {
-    playerSelection = "paper", playRound();
+    playerSelection = "paper", paperSound.play(), playRound();
   });
 scissorsbtn.addEventListener('click', function() {
-    playerSelection = "scissors", playRound();
+    playerSelection = "scissors", scissorSound.play(), playRound();
   });
 
 // Computer to generate choice of Rock, Paper or Scissors
@@ -81,10 +86,10 @@ function outputScore() {
 // Announce a winner!
 
 function declareWinner() {
-    if (playerScore >= 3) {
-    alert('You beat me MOTHERFUCKER!')
-    } else if (computerScore >= 3) {
-        alert('HAHA FUCK YOU DUMB CUNT! I WIN!')
+    if (playerScore >= 5) {
+        winSound.play(), alert('You beat me MOTHERFUCKER!')
+    } else if (computerScore >= 5) {
+        loseSound.play(), alert('HAHA FUCK YOU DUMB CUNT! I WIN!')
     } else {
 
     }

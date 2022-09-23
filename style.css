@@ -91,7 +91,13 @@ img {
 
 ul {
     list-style: none;
+    display: flex;
+    justify-content: center;
+    
   }
+li {
+  width: 40%;
+}
 
 #footer {
     font-size: .5em;

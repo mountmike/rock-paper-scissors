@@ -38,7 +38,7 @@ img {
 }
 
 
-#rock:hover, #paper:hover, #scissors:hover {
+#rock:hover, #paper:hover, #scissors:hover, #rock:active, #paper:active, #scissors:active {
     transition: transform .2s;
     transform: scale(1.2);
 }
